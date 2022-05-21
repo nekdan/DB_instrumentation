@@ -119,6 +119,7 @@
             this.button_save_comment.TabIndex = 9;
             this.button_save_comment.Text = "Сохранить";
             this.button_save_comment.UseVisualStyleBackColor = true;
+            this.button_save_comment.Click += new System.EventHandler(this.button_save_comment_Click);
             // 
             // menuStrip1
             // 
