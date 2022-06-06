@@ -37,8 +37,13 @@
             this.label_comment = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_save_comment = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.soundDatasGridView = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoundId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubsoundId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soundDatasGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -121,20 +126,59 @@
             this.button_save_comment.UseVisualStyleBackColor = true;
             this.button_save_comment.Click += new System.EventHandler(this.button_save_comment_Click);
             // 
-            // menuStrip1
+            // soundDatasGridView
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1243, 24);
-            this.menuStrip1.TabIndex = 10;
-            this.menuStrip1.Text = "menuStrip1";
+            this.soundDatasGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.soundDatasGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.soundDatasGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Comment,
+            this.SoundId,
+            this.SubsoundId});
+            this.soundDatasGridView.Location = new System.Drawing.Point(12, 509);
+            this.soundDatasGridView.Name = "soundDatasGridView";
+            this.soundDatasGridView.RowHeadersWidth = 51;
+            this.soundDatasGridView.RowTemplate.Height = 29;
+            this.soundDatasGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.soundDatasGridView.Size = new System.Drawing.Size(1219, 106);
+            this.soundDatasGridView.TabIndex = 11;
+            this.soundDatasGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.soundDatasGridView_RowHeaderMouseDoubleClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // Comment
+            // 
+            this.Comment.HeaderText = "Comment";
+            this.Comment.MinimumWidth = 6;
+            this.Comment.Name = "Comment";
+            // 
+            // SoundId
+            // 
+            this.SoundId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.SoundId.HeaderText = "Sound Id";
+            this.SoundId.MinimumWidth = 6;
+            this.SoundId.Name = "SoundId";
+            this.SoundId.Width = 97;
+            // 
+            // SubsoundId
+            // 
+            this.SubsoundId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.SubsoundId.HeaderText = "Subsound Id";
+            this.SubsoundId.MinimumWidth = 6;
+            this.SubsoundId.Name = "SubsoundId";
+            this.SubsoundId.Width = 120;
             // 
             // frmInstrumentation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 497);
+            this.ClientSize = new System.Drawing.Size(1243, 627);
+            this.Controls.Add(this.soundDatasGridView);
             this.Controls.Add(this.button_save_comment);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_comment);
@@ -144,13 +188,12 @@
             this.Controls.Add(this.label_instruments);
             this.Controls.Add(this.instrumentsListBox);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmInstrumentation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DB instrumentation";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soundDatasGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,6 +210,10 @@
         private Label label_comment;
         private PictureBox pictureBox1;
         private Button button_save_comment;
-        private MenuStrip menuStrip1;
+        private DataGridView soundDatasGridView;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn Comment;
+        private DataGridViewTextBoxColumn SoundId;
+        private DataGridViewTextBoxColumn SubsoundId;
     }
 }
