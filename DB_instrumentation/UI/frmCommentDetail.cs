@@ -18,6 +18,12 @@ namespace DB_instrumentation.UI
         {
             InitializeComponent();
         }
+        frmInstrumentation frm;
+        public frmCommentDetail(frmInstrumentation frm)
+        {
+            InitializeComponent();
+            this.frm = frm;
+        }
         SoundDatasManager _soundDatasManager = new SoundDatasManager();
 
         private void button_update_comment_Click(object sender, EventArgs e)
@@ -33,10 +39,15 @@ namespace DB_instrumentation.UI
                 SoundsDatas soundsDatas = new SoundsDatas();
                 soundsDatas.Id = Convert.ToInt32(idLabel.Text);
                 soundsDatas.Description = commentTextBox.Text;
+                if (soundsDatas.SoundId != null)
+                    soundsDatas.SoundId = Convert.ToInt32(soundId.Text);
+                else if (soundsDatas.SubsoundId != null)
+                    soundsDatas.SubsoundId = Convert.ToInt32(subsoundId.Text);
                 if (_soundDatasManager.Update(soundsDatas))
                 {
                     MessageBox.Show("Комментарий изменён", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
+                    frm.LoadData();
                 }
                 else
                 {

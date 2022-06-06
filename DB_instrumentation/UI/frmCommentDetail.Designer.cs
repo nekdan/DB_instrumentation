@@ -32,6 +32,10 @@
             this.label_comment = new System.Windows.Forms.Label();
             this.commentTextBox = new System.Windows.Forms.RichTextBox();
             this.idLabel = new System.Windows.Forms.Label();
+            this.soundId = new System.Windows.Forms.Label();
+            this.subsoundId = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_update_comment
@@ -64,17 +68,57 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(585, 18);
+            this.idLabel.Location = new System.Drawing.Point(545, 18);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(0, 20);
+            this.idLabel.Size = new System.Drawing.Size(102, 20);
             this.idLabel.TabIndex = 13;
-            this.idLabel.Visible = false;
+            this.idLabel.Text = "SoundDatasId";
+            // 
+            // soundId
+            // 
+            this.soundId.AutoSize = true;
+            this.soundId.Location = new System.Drawing.Point(98, 308);
+            this.soundId.Name = "soundId";
+            this.soundId.Size = new System.Drawing.Size(62, 20);
+            this.soundId.TabIndex = 14;
+            this.soundId.Text = "soundId";
+            // 
+            // subsoundId
+            // 
+            this.subsoundId.AutoSize = true;
+            this.subsoundId.Location = new System.Drawing.Point(121, 340);
+            this.subsoundId.Name = "subsoundId";
+            this.subsoundId.Size = new System.Drawing.Size(85, 20);
+            this.subsoundId.TabIndex = 15;
+            this.subsoundId.Text = "subsoundId";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 308);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 20);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Sound Id:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 340);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 20);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Subsound Id:";
             // 
             // frmCommentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 382);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.subsoundId);
+            this.Controls.Add(this.soundId);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.button_update_comment);
             this.Controls.Add(this.label_comment);
@@ -95,5 +139,9 @@
         private Label label_comment;
         public Label idLabel;
         public RichTextBox commentTextBox;
+        public Label soundId;
+        public Label subsoundId;
+        private Label label1;
+        private Label label2;
     }
 }

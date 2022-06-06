@@ -34,7 +34,7 @@ namespace DB_instrumentation
             }
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             var soundDatas = _soundDatasManager.GetAll();
             soundDatasGridView.Rows.Clear();
@@ -84,11 +84,21 @@ namespace DB_instrumentation
             try
             {
                 DataGridViewRow dr = soundDatasGridView.SelectedRows[0];
-                frmCommentDetail frm = new frmCommentDetail();
+                frmCommentDetail frm = new frmCommentDetail(this);
                 //this.Hide();
                 //frm.Show();
                 frm.idLabel.Text = dr.Cells[0].Value.ToString();
                 frm.commentTextBox.Text = dr.Cells[1].Value.ToString();
+                if (dr.Cells[2].Value != null)
+                {
+                    frm.soundId.Text = dr.Cells[2].Value.ToString();
+                    frm.subsoundId.Text = null;
+                }
+                else if (dr.Cells[3].Value != null)
+                {
+                    frm.soundId.Text = null;
+                    frm.subsoundId.Text = dr.Cells[3].Value.ToString();
+                }
                 frm.ShowDialog();
             }
             catch (Exception ex)
