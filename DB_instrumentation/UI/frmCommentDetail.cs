@@ -14,10 +14,6 @@ namespace DB_instrumentation.UI
 {
     public partial class frmCommentDetail : Form
     {
-        public frmCommentDetail()
-        {
-            InitializeComponent();
-        }
         frmInstrumentation frm;
         public frmCommentDetail(frmInstrumentation frm)
         {

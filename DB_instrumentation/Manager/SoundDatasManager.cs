@@ -26,5 +26,10 @@ namespace DB_instrumentation.Manager
         {
             return _soundDatasGateway.Update(soundsDatas);
         }
+
+        public bool Delete(int id)
+        {
+            return _soundDatasGateway.Delete(id);
+        }
     }
 }

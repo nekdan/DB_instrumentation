@@ -33,5 +33,16 @@ namespace DB_instrumentation.Gateway
             data.SoundBase64 = soundsDatas.SoundBase64;
             return _dbContext.SaveChanges() > 0;
         }
+
+        public bool Delete(int id)
+        {
+            var sound = _dbContext.SoundsDatas.FirstOrDefault(s => s.Id == id);
+            if (sound == null)
+            {
+                return false;
+            }
+            _dbContext.SoundsDatas.Remove(sound);
+            return _dbContext.SaveChanges() > 0;
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace DB_instrumentation
         }
 
         SoundDatasManager _soundDatasManager = new SoundDatasManager();
+        CategoriesManager _categoriesManager = new CategoriesManager();
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -41,6 +42,13 @@ namespace DB_instrumentation
             foreach (var soundData in soundDatas)
             {
                 soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
+            }
+
+            var categories = _categoriesManager.GetAll();
+            categoriesСomboBox.Items.Clear();
+            foreach (var category in categories)
+            {
+                categoriesСomboBox.Items.Add(category.Name);
             }
         }
 
@@ -75,7 +83,6 @@ namespace DB_instrumentation
         private void Reset()
         {
             commentTextBox.Text = String.Empty;
-            instrumentsListBox.Items.Clear();
             LoadData();
         }
 
@@ -113,6 +120,33 @@ namespace DB_instrumentation
         private void soundDatasGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow dr = soundDatasGridView.SelectedRows[0];
+                if (MessageBox.Show("Вы хотите удалить всю запись с музыкальным файлом?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int id = (int)dr.Cells[0].Value;
+                    bool isDelete = _soundDatasManager.Delete(id);
+                    if (isDelete)
+                    {
+                        MessageBox.Show("Запись полностью удалена", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //LoadData();
+                        soundDatasGridView.Rows.Remove(dr);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Запись не удалена", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.components = new System.ComponentModel.Container();
+            this.categoriesСomboBox = new System.Windows.Forms.ComboBox();
             this.instrumentsListBox = new System.Windows.Forms.ListBox();
             this.label_instruments = new System.Windows.Forms.Label();
             this.trackListBox = new System.Windows.Forms.ListBox();
@@ -43,17 +44,20 @@
             this.SoundId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubsoundId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sound_Base64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundDatasGridView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // categoriesСomboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(11, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 1;
+            this.categoriesСomboBox.FormattingEnabled = true;
+            this.categoriesСomboBox.Location = new System.Drawing.Point(11, 5);
+            this.categoriesСomboBox.Name = "categoriesСomboBox";
+            this.categoriesСomboBox.Size = new System.Drawing.Size(151, 28);
+            this.categoriesСomboBox.TabIndex = 1;
             // 
             // instrumentsListBox
             // 
@@ -137,6 +141,7 @@
             this.SoundId,
             this.SubsoundId,
             this.Sound_Base64});
+            this.soundDatasGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.soundDatasGridView.Location = new System.Drawing.Point(12, 509);
             this.soundDatasGridView.Name = "soundDatasGridView";
             this.soundDatasGridView.RowHeadersWidth = 51;
@@ -184,6 +189,21 @@
             this.Sound_Base64.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Sound_Base64.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 28);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.deleteToolStripMenuItem.Text = "Удалить";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // frmInstrumentation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -198,13 +218,14 @@
             this.Controls.Add(this.trackListBox);
             this.Controls.Add(this.label_instruments);
             this.Controls.Add(this.instrumentsListBox);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.categoriesСomboBox);
             this.Name = "frmInstrumentation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DB instrumentation";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundDatasGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,7 +233,7 @@
 
         #endregion
 
-        private ComboBox comboBox1;
+        private ComboBox categoriesСomboBox;
         private ListBox instrumentsListBox;
         private Label label_instruments;
         private ListBox trackListBox;
@@ -227,5 +248,7 @@
         private DataGridViewTextBoxColumn SoundId;
         private DataGridViewTextBoxColumn SubsoundId;
         private DataGridViewTextBoxColumn Sound_Base64;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
