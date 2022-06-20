@@ -10,21 +10,21 @@ namespace DB_instrumentation.Manager
 {
     public class SoundDatasManager
     {
-        SoundDatasGateway soundDatasGateway = new SoundDatasGateway();
+        SoundDatasGateway _soundDatasGateway = new SoundDatasGateway();
 
         public bool Add(SoundsDatas soundDatas)
         {
-            return soundDatasGateway.Add(soundDatas);
+            return _soundDatasGateway.Add(soundDatas);
         }
 
         public List<SoundsDatas>GetAll()
         {
-            return soundDatasGateway.GetAll();
+            return _soundDatasGateway.GetAll();
         }
 
         public bool Update(SoundsDatas soundsDatas)
         {
-            return soundDatasGateway.Update(soundsDatas);
+            return _soundDatasGateway.Update(soundsDatas);
         }
     }
 }

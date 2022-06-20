@@ -29,7 +29,8 @@ namespace DB_instrumentation.Gateway
             {
                 return false;
             }
-            data.Id = soundsDatas.Id;
+            data.Description = soundsDatas.Description;
+            data.SoundBase64 = soundsDatas.SoundBase64;
             return _dbContext.SaveChanges() > 0;
         }
     }

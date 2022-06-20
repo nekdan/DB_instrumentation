@@ -40,7 +40,7 @@ namespace DB_instrumentation
             soundDatasGridView.Rows.Clear();
             foreach (var soundData in soundDatas)
             {
-                soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId);
+                soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
             }
         }
 
@@ -99,12 +99,20 @@ namespace DB_instrumentation
                     frm.soundId.Text = null;
                     frm.subsoundId.Text = dr.Cells[3].Value.ToString();
                 }
+                if (dr.Cells[4].Value != null)
+                frm.sound64TextBox.Text = dr.Cells[4].Value.ToString();
+                else frm.sound64TextBox.Text = null;
                 frm.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void soundDatasGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -36,6 +36,7 @@
             this.subsoundId = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.sound64TextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button_update_comment
@@ -110,11 +111,20 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Subsound Id:";
             // 
+            // sound64TextBox
+            // 
+            this.sound64TextBox.Location = new System.Drawing.Point(12, 372);
+            this.sound64TextBox.Name = "sound64TextBox";
+            this.sound64TextBox.Size = new System.Drawing.Size(623, 107);
+            this.sound64TextBox.TabIndex = 18;
+            this.sound64TextBox.Text = "";
+            // 
             // frmCommentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 382);
+            this.ClientSize = new System.Drawing.Size(649, 486);
+            this.Controls.Add(this.sound64TextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.subsoundId);
@@ -143,5 +153,6 @@
         public Label subsoundId;
         private Label label1;
         private Label label2;
+        public RichTextBox sound64TextBox;
     }
 }

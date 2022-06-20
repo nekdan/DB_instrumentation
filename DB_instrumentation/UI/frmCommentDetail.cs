@@ -40,9 +40,16 @@ namespace DB_instrumentation.UI
                 soundsDatas.Id = Convert.ToInt32(idLabel.Text);
                 soundsDatas.Description = commentTextBox.Text;
                 if (soundsDatas.SoundId != null)
+                {
                     soundsDatas.SoundId = Convert.ToInt32(soundId.Text);
+                    soundsDatas.SubsoundId = null;
+                }
                 else if (soundsDatas.SubsoundId != null)
+                {
                     soundsDatas.SubsoundId = Convert.ToInt32(subsoundId.Text);
+                    soundsDatas.SoundId = null;
+                }
+                soundsDatas.SoundBase64 = sound64TextBox.Text;
                 if (_soundDatasManager.Update(soundsDatas))
                 {
                     MessageBox.Show("Комментарий изменён", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);

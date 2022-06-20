@@ -42,6 +42,7 @@
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoundId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubsoundId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sound_Base64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundDatasGridView)).BeginInit();
             this.SuspendLayout();
@@ -134,7 +135,8 @@
             this.id,
             this.Comment,
             this.SoundId,
-            this.SubsoundId});
+            this.SubsoundId,
+            this.Sound_Base64});
             this.soundDatasGridView.Location = new System.Drawing.Point(12, 509);
             this.soundDatasGridView.Name = "soundDatasGridView";
             this.soundDatasGridView.RowHeadersWidth = 51;
@@ -142,6 +144,7 @@
             this.soundDatasGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.soundDatasGridView.Size = new System.Drawing.Size(1219, 106);
             this.soundDatasGridView.TabIndex = 11;
+            this.soundDatasGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.soundDatasGridView_CellContentClick);
             this.soundDatasGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.soundDatasGridView_RowHeaderMouseDoubleClick);
             // 
             // id
@@ -172,6 +175,14 @@
             this.SubsoundId.MinimumWidth = 6;
             this.SubsoundId.Name = "SubsoundId";
             this.SubsoundId.Width = 120;
+            // 
+            // Sound_Base64
+            // 
+            this.Sound_Base64.HeaderText = "Sound_Base64";
+            this.Sound_Base64.MinimumWidth = 6;
+            this.Sound_Base64.Name = "Sound_Base64";
+            this.Sound_Base64.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Sound_Base64.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmInstrumentation
             // 
@@ -215,5 +226,6 @@
         private DataGridViewTextBoxColumn Comment;
         private DataGridViewTextBoxColumn SoundId;
         private DataGridViewTextBoxColumn SubsoundId;
+        private DataGridViewTextBoxColumn Sound_Base64;
     }
 }
