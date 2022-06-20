@@ -46,18 +46,24 @@
             this.Sound_Base64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriesManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundDatasGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesManagerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // categoriesСomboBox
             // 
+            this.categoriesСomboBox.DataSource = _categoriesManager.GetAll();
+            this.categoriesСomboBox.DisplayMember = "Name";
+            this.categoriesСomboBox.ValueMember = "Id";
             this.categoriesСomboBox.FormattingEnabled = true;
             this.categoriesСomboBox.Location = new System.Drawing.Point(11, 5);
             this.categoriesСomboBox.Name = "categoriesСomboBox";
             this.categoriesСomboBox.Size = new System.Drawing.Size(151, 28);
             this.categoriesСomboBox.TabIndex = 1;
+            this.categoriesСomboBox.SelectedIndexChanged += categoriesСomboBox_SelectedIndexChanged;
             // 
             // instrumentsListBox
             // 
@@ -67,6 +73,8 @@
             this.instrumentsListBox.Name = "instrumentsListBox";
             this.instrumentsListBox.Size = new System.Drawing.Size(353, 424);
             this.instrumentsListBox.TabIndex = 2;
+            this.instrumentsListBox.DisplayMember = "Name";
+            this.instrumentsListBox.ValueMember = "Id";
             // 
             // label_instruments
             // 
@@ -204,6 +212,10 @@
             this.deleteToolStripMenuItem.Text = "Удалить";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // categoriesManagerBindingSource
+            // 
+            this.categoriesManagerBindingSource.DataSource = typeof(DB_instrumentation.Manager.CategoriesManager);
+            // 
             // frmInstrumentation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -226,6 +238,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundDatasGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesManagerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +263,6 @@
         private DataGridViewTextBoxColumn Sound_Base64;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem deleteToolStripMenuItem;
+        private BindingSource categoriesManagerBindingSource;
     }
 }

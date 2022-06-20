@@ -13,6 +13,21 @@ namespace DB_instrumentation
 
         SoundDatasManager _soundDatasManager = new SoundDatasManager();
         CategoriesManager _categoriesManager = new CategoriesManager();
+        InstumentsManager _instumentsManager = new InstumentsManager();
+
+        private void categories—omboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            instrumentsListBox.Items.Clear();
+            int id = (int)categories—omboBox.SelectedValue;
+            Categories category = (Categories)categories—omboBox.SelectedItem;
+            //instrumentsListBox.Items.Add(category);
+            var instuments = _instumentsManager.GetAll();
+            foreach (var instument in instuments)
+            {
+                if (instument.CategoryId == id)
+                instrumentsListBox.Items.Add(instument.Name);
+            }
+        }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -49,6 +64,13 @@ namespace DB_instrumentation
             foreach (var category in categories)
             {
                 categories—omboBox.Items.Add(category.Name);
+            }
+
+            var instuments = _instumentsManager.GetAll();
+            instrumentsListBox.Items.Clear();
+            foreach (var instument in instuments)
+            {
+                instrumentsListBox.Items.Add(instument.Name);
             }
         }
 
