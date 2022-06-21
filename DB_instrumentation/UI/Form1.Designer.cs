@@ -98,6 +98,7 @@
             this.trackListBox.DisplayMember = "Name";
             this.trackListBox.ValueMember = "Id";
             //this.trackListBox.DataSource = _soundsManager.GetAll();
+            this.trackListBox.SelectedIndexChanged += trackListBox_SelectedIndexChanged;
             // 
             // label_track
             // 
@@ -246,6 +247,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void TrackListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

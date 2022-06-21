@@ -22,6 +22,7 @@ namespace DB_instrumentation
         {
             instrumentsListBox.Items.Clear();
             trackListBox.Items.Clear();
+            soundDatasGridView.Rows.Clear();
             int id = (int)categories—omboBox.SelectedValue;
             //Categories category = (Categories)categories—omboBox.SelectedItem;
             //MessageBox.Show(id.ToString() + ". " + category.Name);
@@ -48,9 +49,11 @@ namespace DB_instrumentation
         private void instrumentsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             trackListBox.Items.Clear();
+            soundDatasGridView.Rows.Clear();
+            // œÓ˜ÂÏÛ-ÚÓ ÔËıÓ‰ËÚ null Û ÏÂÚÓ‰‡ SelectedValue
             //int id_instuments = (int)instrumentsListBox.SelectedValue;
             string name_instument = instrumentsListBox.SelectedItem.ToString();
-            MessageBox.Show(name_instument);
+            //MessageBox.Show(name_instument);
 
             var instuments = _instumentsManager.GetAll();
             var subinstuments = _subinstumentsManager.GetAll();
@@ -130,6 +133,48 @@ namespace DB_instrumentation
                             instrumentsListBox.Items.Add(subinstument.Name);
                     }
                 }
+            }
+            */
+        }
+
+        private void trackListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            soundDatasGridView.Rows.Clear();
+            //int id_track = (int)trackListBox.SelectedValue;
+            string name_track = trackListBox.SelectedItem.ToString();
+
+            var sounds = _soundsManager.GetAll();
+            var subsounds = _subsoundsManager.GetAll();
+            var soundDatas = _soundDatasManager.GetAll();
+
+            //MessageBox.Show(name_track.ToString());
+
+            foreach (var sound in sounds)
+            {
+                if (sound.Name == name_track)
+                {
+                    int id_sound = sound.Id;
+                    foreach (var soundData in soundDatas)
+                    {
+                        if (soundData.SoundId == id_sound)
+                        {
+                            soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
+                            foreach (var subsound in subsounds)
+                            {
+                                if (sound.Id == subsound.SoundId)
+                                    MessageBox.Show(sound.Id.ToString());
+                                //soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
+                            }
+                        }
+                    }
+                }
+            }
+            //LoadData();
+            /*
+            var soundDatas = _soundDatasManager.GetAll();
+            foreach (var soundData in soundDatas)
+            {
+                soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
             }
             */
         }
