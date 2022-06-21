@@ -14,6 +14,7 @@ namespace DB_instrumentation
         SoundDatasManager _soundDatasManager = new SoundDatasManager();
         CategoriesManager _categoriesManager = new CategoriesManager();
         InstumentsManager _instumentsManager = new InstumentsManager();
+        SubinstumentsManager _subinstumentsManager = new SubinstumentsManager();
 
         private void categoriesÑomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -22,10 +23,18 @@ namespace DB_instrumentation
             Categories category = (Categories)categoriesÑomboBox.SelectedItem;
             //instrumentsListBox.Items.Add(category);
             var instuments = _instumentsManager.GetAll();
+            var subinstuments = _subinstumentsManager.GetAll();
             foreach (var instument in instuments)
             {
                 if (instument.CategoryId == id)
-                instrumentsListBox.Items.Add(instument.Name);
+                {
+                    instrumentsListBox.Items.Add(instument.Name);
+                    foreach (var subinstument in subinstuments)
+                    {
+                        if (instument.Id == subinstument.InstumentId)
+                            instrumentsListBox.Items.Add(subinstument.Name);
+                    }                    
+                }
             }
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,12 +75,14 @@ namespace DB_instrumentation
                 categoriesÑomboBox.Items.Add(category.Name);
             }
 
-            var instuments = _instumentsManager.GetAll();
-            instrumentsListBox.Items.Clear();
+            /*
+            var instuments = _instumentsManager.GetAll();            
             foreach (var instument in instuments)
             {
                 instrumentsListBox.Items.Add(instument.Name);
             }
+            */
+            
         }
 
         private void button_save_comment_Click(object sender, EventArgs e)
