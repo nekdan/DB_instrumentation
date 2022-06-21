@@ -10,8 +10,8 @@ namespace DB_instrumentation.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int SubinstumentId { get; set; }
-        public int InstumentId { get; set; }
-        public int SubinstrumentId { get; set; }
+        public int? SubinstumentId { get; set; }
+        public int? InstumentId { get; set; }
+        public int? SubinstrumentId { get; set; }
     }
 }

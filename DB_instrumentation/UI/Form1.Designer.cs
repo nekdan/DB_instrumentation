@@ -75,6 +75,7 @@
             this.instrumentsListBox.TabIndex = 2;
             this.instrumentsListBox.DisplayMember = "Name";
             this.instrumentsListBox.ValueMember = "Id";
+            this.instrumentsListBox.SelectedIndexChanged += instrumentsListBox_SelectedIndexChanged;
             // 
             // label_instruments
             // 
@@ -93,7 +94,10 @@
             this.trackListBox.Location = new System.Drawing.Point(376, 65);
             this.trackListBox.Name = "trackListBox";
             this.trackListBox.Size = new System.Drawing.Size(479, 424);
-            this.trackListBox.TabIndex = 4;
+            this.trackListBox.TabIndex = 4;            
+            this.trackListBox.DisplayMember = "Name";
+            this.trackListBox.ValueMember = "Id";
+            //this.trackListBox.DataSource = _soundsManager.GetAll();
             // 
             // label_track
             // 
