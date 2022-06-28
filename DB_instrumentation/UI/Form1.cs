@@ -159,12 +159,38 @@ namespace DB_instrumentation
                         if (soundData.SoundId == id_sound)
                         {
                             soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
-                            foreach (var subsound in subsounds)
+                        }
+                    }
+                }
+                foreach (var subsound in subsounds)
+                {
+                    if (subsound.Name == (name_track))
+                    {
+                        int id_subsound = subsound.Id;
+                        foreach (var soundData in soundDatas)
+                        {                            
+                            if ((sound.Id == subsound.SoundId) && (soundData.SubsoundId == id_subsound))
                             {
-                                if (sound.Id == subsound.SoundId)
-                                    MessageBox.Show(sound.Id.ToString());
-                                //soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
+                                //MessageBox.Show("sound_id:" + sound.Id.ToString() + " subsound_id:" + id_subsound);
+                                soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
+                                
                             }
+                            /*
+                            if (sound.Id == subsound.SoundId)
+                            {
+                                //MessageBox.Show("sound_id:" + sound.Id.ToString() + " subsound_id:" + id_subsound);
+
+                                if (subsound.Id == soundData.SubsoundId)
+                                {
+                                    MessageBox.Show("sound_id:" + sound.Id.ToString() + " subsound_id:" + id_subsound);
+                                    soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
+                                
+                                }
+                            }
+                            */
+                            //MessageBox.Show("sound_id:" + sound.Id.ToString() + " subsound_id:" + subsound.Id);
+                            //soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
+
                         }
                     }
                 }
@@ -198,13 +224,14 @@ namespace DB_instrumentation
 
         public void LoadData()
         {
+            /*
             var soundDatas = _soundDatasManager.GetAll();
             soundDatasGridView.Rows.Clear();
             foreach (var soundData in soundDatas)
             {
                 soundDatasGridView.Rows.Add(soundData.Id, soundData.Description, soundData.SoundId, soundData.SubsoundId, soundData.SoundBase64);
             }
-            /*
+            
             var categories = _categoriesManager.GetAll();
             categories—omboBox.Items.Clear();
             foreach (var category in categories)

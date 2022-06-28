@@ -11,7 +11,7 @@ namespace DB_instrumentation.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source=D:\C#\DB_instrumentation\DB\app-test.db");
+            optionsBuilder.UseSqlite(@"Data Source=D:\C#\DB_instrumentation\DB\app.db");
         }
 
         public DbSet<Categories> Categories { get; set; }
